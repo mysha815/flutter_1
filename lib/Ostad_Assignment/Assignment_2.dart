@@ -46,7 +46,7 @@ class Assignment2 extends StatelessWidget {
             ),
           ),
 
-          ElevatedButton(onPressed: (){}, child: Text('Add Empolyee')),
+          ElevatedButton(onPressed: (){}, child: Text('Add Empolyee',style: TextStyle(color: Colors.deepPurple),)),
         ],
       ),
     );

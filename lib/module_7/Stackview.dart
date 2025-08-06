@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter1/Assignment_1.dart';
+
 import 'package:flutter1/Bijoy/Food.dart';
-import 'package:flutter1/Navigation.dart';
-import 'package:flutter1/Tab.dart';
+
 import 'package:flutter1/Test/Test.dart';
-import 'package:flutter1/flutter_class_3.dart';
-import 'package:flutter1/list_view.dart';
+
 class Stackview extends StatelessWidget {
   const Stackview({super.key});
 
@@ -44,10 +42,9 @@ class Stackview extends StatelessWidget {
 
         body: TabBarView(
             children: [
-              ListClass(),
+
               Food(),
-              Navigation(),
-              FlutterClass3()
+
             ]),
 
       ),

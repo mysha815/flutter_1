@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import '../Widget/CalculatorButton.dart';
+class Calculatorapp extends StatefulWidget {
+  const Calculatorapp({super.key});
+
+  @override
+  State<Calculatorapp> createState() => _CalculatorappState();
+}
+
+class _CalculatorappState extends State<Calculatorapp> {
+  String _output ='0';
+  String _input ='0';
+  String _ope ='0';
+  double num1 =0;
+  double num2 =0;
+
+  void buttonPress(String value){
+   print('int value = $value');
+   setState(() {
+     if(value == 'c'){
+       _output ='0';
+        _input ='0';
+        _ope ='';
+        num1 =0;
+        num2 =0;
+     }else if(value == '='){
+       num2 = double.parse(_input);
+       if(_ope == '+'){
+         _output =(num1+num2).toString();
+       }else if(_ope == '-'){
+         _output =(num1-num2).toString();
+       }else if(_ope == '*'){
+         _output =(num1*num2).toString();
+       }else if(_ope == '/'){
+         _output =num2 != 0? (num1/num2).toString():'Syntax Error';
+
+       }
+     }else if(['+','-','*','/'].contains(value)){
+       num1 =double.parse(_input);
+       _ope = value;
+       _input ='';
+     }else{
+       if (_input == '0'){
+         _input = value;
+       }else{
+         _input += value;
+       }
+       _output = _input;
+     }
+
+
+
+
+   });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Column(
+        
+        children: [
+          Expanded(
+            child: Container(
+              alignment: Alignment.bottomRight,
+              padding: EdgeInsets.all(24),
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  (_ope.isNotEmpty && _input.isNotEmpty) ? Text('$num1 $_ope $_input',
+                    style: TextStyle(fontSize: 24,color: Colors.white54),
+                  ):SizedBox(),
+                  SizedBox(height: 20,),
+
+
+                  Text(_output,style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold,color: Colors.white),),
+                ],
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              CalculatorButton(onClick: ()=>buttonPress('7'), text: '7'),
+              CalculatorButton(onClick: ()=>buttonPress('8'), text: '8'),
+              CalculatorButton(onClick: ()=>buttonPress('9'), text: '9'),
+              CalculatorButton(onClick: ()=>buttonPress('+'), text: '+',color: Colors.orange,),
+      
+            ],
+          ),
+          Row(
+            children: [
+              CalculatorButton(onClick: ()=>buttonPress('4'), text: '4'),
+              CalculatorButton(onClick: ()=>buttonPress('5'), text: '5'),
+              CalculatorButton(onClick: ()=>buttonPress('6'), text: '6'),
+              CalculatorButton(onClick: ()=>buttonPress('-'), text: '-',color: Colors.orange,),
+      
+            ],
+          ),
+          Row(
+            children: [
+              CalculatorButton(onClick: ()=>buttonPress('1'), text: '1'),
+              CalculatorButton(onClick: ()=>buttonPress('2'), text: '2'),
+              CalculatorButton(onClick: ()=>buttonPress('3'), text: '3'),
+              CalculatorButton(onClick: ()=>buttonPress('*'), text: '*',color: Colors.orange,),
+      
+            ],
+          ),
+          Row(
+            children: [
+              CalculatorButton(onClick: ()=>buttonPress('c'), text: 'c'),
+              CalculatorButton(onClick: ()=>buttonPress('0'), text: '0'),
+              CalculatorButton(onClick: ()=>buttonPress('='), text: '='),
+              CalculatorButton(onClick: ()=>buttonPress('/'), text: '/',color: Colors.orange,),
+      
+            ],
+          ),
+      
+        ],
+      ),
+    );
+  }
+}
+
+

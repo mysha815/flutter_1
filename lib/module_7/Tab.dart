@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter1/Photo.dart';
-import 'package:flutter1/assignment.dart';
+
 import 'package:flutter1/list_view.dart';
 
 class tab extends StatelessWidget {
@@ -52,7 +52,7 @@ class tab extends StatelessWidget {
             //    child: Text('Settings',style: TextStyle(fontSize: 20),),
              // ),
 
-              Assignment(),
+
               Photo(),
               ListClass(),
 
