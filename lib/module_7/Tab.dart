@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter1/Photo.dart';
 
-import 'package:flutter1/list_view.dart';
 
 class tab extends StatelessWidget {
   const tab ({super.key});
@@ -53,8 +51,6 @@ class tab extends StatelessWidget {
              // ),
 
 
-              Photo(),
-              ListClass(),
 
             ],
                 
